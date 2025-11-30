@@ -5,105 +5,96 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prometric Quiz Gateway</title>
 <style>
-    /* Reset and basic styles */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; font-family: Arial, sans-serif; overflow: hidden; }
+  /* Reset and basic styles */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; font-family: Arial, sans-serif; overflow: hidden; }
 
-    /* Full page background with dynamic flowing water effect */
-    body {
-        background: url('https://github.com/gyoutrain-lab/production-prometrictest4/blob/main/assets/icon17%20(9).jpg') center top / cover no-repeat,
-                    linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.3));
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        animation: flow 15s infinite linear;
-    }
+  /* Full page container */
+  body {
+    position: relative;
+    background: #000;
+  }
 
-    @keyframes flow {
-        0% { background-position: center top; }
-        50% { background-position: center center; }
-        100% { background-position: center top; }
-    }
+  /* Dynamic flowing overlay background */
+  .overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('https://raw.githubusercontent.com/gyoutrain-lab/production-prometrictest4/main/assets/icon17%20(9).jpg') center center / cover no-repeat;
+    opacity: 0.1;
+    z-index: 1;
+    animation: flow 20s linear infinite;
+  }
 
-    /* Container for the clickable gateway */
-    .gateway {
-        text-align: center;
-        z-index: 10;
-    }
+  @keyframes flow {
+    0% { background-position: center top; }
+    50% { background-position: center center; }
+    100% { background-position: center top; }
+  }
 
-    .gateway img {
-        max-width: 50%;
-        border-radius: 15px;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-    }
+  /* Top image */
+  .top-image {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 50%;
+    background: url('https://raw.githubusercontent.com/gyoutrain-lab/production-prometrictest4/main/assets/icon17%20(9).jpg') center / cover no-repeat;
+    z-index: 5;
+  }
 
-    .gateway img:hover {
-        transform: scale(1.05);
-    }
+  /* iframe dashboard */
+  .dashboard {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 50%;
+    border: none;
+    z-index: 10;
+  }
 
-    /* Social icons container */
-    .social {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        position: absolute;
-        top: 60%;
-        z-index: 20;
-    }
+  /* Social icons */
+  .social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    position: absolute;
+    top: 45%;
+    width: 100%;
+    z-index: 15;
+  }
 
-    .social a img {
-        width: 50px;
-        height: 50px;
-        transition: transform 0.3s;
-    }
+  .social a img {
+    width: 50px; height: 50px;
+    transition: transform 0.3s;
+  }
 
-    .social a img:hover {
-        transform: scale(1.2);
-    }
+  .social a img:hover {
+    transform: scale(1.2);
+  }
 
-    /* QR code bottom-right */
-    .qr {
-        position: absolute;
-        bottom: 20px;
-        right: 20px;
-        z-index: 20;
-    }
+  /* QR code bottom-right */
+  .qr {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 15;
+  }
 
-    .qr img {
-        width: 100px;
-        height: 100px;
-    }
-
-    /* Optional overlay for water effect behind dashboard image */
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url('https://github.com/gyoutrain-lab/production-prometrictest4/blob/main/assets/icon17%20(9).jpg') center / cover no-repeat;
-        opacity: 0.1;
-        z-index: 5;
-        animation: flow 20s infinite linear;
-    }
+  .qr img {
+    width: 100px;
+    height: 100px;
+  }
 </style>
 </head>
 <body>
 
-<!-- Optional overlay behind dashboard -->
+<!-- Dynamic overlay -->
 <div class="overlay"></div>
 
-<!-- Gateway image to Google Script dashboard -->
-<div class="gateway">
-    <a href="https://script.google.com/macros/s/AKfycbxmOVoeKl8lMYIp3EFFki52F-J_iNQLFMikSez3HuZ16ba_eU43dqTKhR3Tb2PncuyM/exec" target="_blank">
-        <img src="https://github.com/gyoutrain-lab/production-prometrictest4/blob/main/assets/icon17%20(9).jpg" alt="Prometric Quiz Gateway">
-    </a>
-</div>
+<!-- Top image -->
+<div class="top-image"></div>
 
-<!-- Social icons -->
+<!-- Social icons in the middle -->
 <div class="social">
     <a href="tel:+6285399652487"><img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Call"></a>
     <a href="https://wa.me/6285399652487"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"></a>
@@ -112,10 +103,17 @@
     <a href="https://www.instagram.com/etkyogya"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
 </div>
 
-<!-- Bottom-right QR code -->
+<!-- QR code bottom-right -->
 <div class="qr">
-    <img src="https://github.com/gyoutrain-lab/production-prometrictest4/blob/main/assets/dana_qr.png" alt="QR Code">
+    <img src="https://raw.githubusercontent.com/gyoutrain-lab/production-prometrictest4/main/assets/dana_qr.png" alt="Dana QR">
 </div>
+
+<!-- Google Script Quiz Dashboard -->
+<iframe 
+    class="dashboard"
+    src="https://script.google.com/macros/s/AKfycbxmOVoeKl8lMYIp3EFFki52F-J_iNQLFMikSez3HuZ16ba_eU43dqTKhR3Tb2PncuyM/exec" 
+    title="Prometric Quiz Dashboard">
+</iframe>
 
 </body>
 </html>
